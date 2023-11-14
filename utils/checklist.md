@@ -1,0 +1,24 @@
+-   [ ] ~~button~~
+-   [x] checkbox
+-   [x] color
+-   [x] date
+-   [x] datetime-local
+-   [x] email
+-   [x] file
+-   [x] hidden
+-   [ ] ~~image~~
+-   [x] month
+-   [x] number
+-   [x] password
+-   [x] radio
+-   [x] range
+-   [x] reset
+-   [x] search
+-   [x] submit
+-   [x] tel
+-   [x] text
+-   [x] time
+-   [x] url
+-   [x] week
+-   [x] textarea
+-   [x] select

@@ -1,0 +1,290 @@
+{
+    "textFeild": {
+        "type": "text",
+        "label": "Text Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "numberFeild": {
+        "type": "number",
+        "label": "Number Feild",
+        "placeholder": "Enter Number",
+        "value": "",
+        "required": true,
+        "validations": {
+            "min": 5,
+            "max": 10,
+            "pattern": "^[0-9]+$"
+        }
+    },
+    "emailFeild": {
+        "type": "email",
+        "label": "Email Feild",
+        "placeholder": "Enter Email",
+        "value": "",
+        "required": true,
+        "validations": {
+            "pattern": "^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$"
+        }
+    },
+    "selectFeild": {
+        "type": "select",
+        "label": "Select Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "label": "Option 1",
+                "value": "option1"
+            },
+            {
+                "label": "Option 2",
+                "value": "option2"
+            },
+            {
+                "label": "Option 3",
+                "value": "option3"
+            }
+        ]
+    },
+    "checkboxFeild": {
+        "type": "checkbox",
+        "label": "Checkbox Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "label": "Option 1",
+                "value": "option1"
+            },
+            {
+                "label": "Option 2",
+                "value": "option2"
+            },
+            {
+                "label": "Option 3",
+                "value": "option3"
+            }
+        ]
+    },
+    "fileFeild": {
+        "type": "file",
+        "label": "File Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "validations": {
+            "fileType": "image"
+        }
+    },
+
+    "rangeFeild": {
+        "type": "range",
+        "label": "Range Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "validations": {
+            "min": 5,
+            "max": 10
+        }
+    },
+
+    "dateFeild": {
+        "type": "date",
+        "label": "Date Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "validations": {
+            "min": "2019-01-01",
+            "max": "2019-12-31"
+        }
+    },
+    "timeFeild": {
+        "type": "time",
+        "label": "Time Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "validations": {
+            "min": "09:00",
+            "max": "18:00"
+        }
+    },
+    "dateTimeFeild": {
+        "type": "datetime-local",
+        "label": "Date Time Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "validations": {
+            "min": "2019-01-01T09:00",
+            "max": "2019-12-31T18:00"
+        }
+    },
+    "radioFeild": {
+        "type": "radio",
+        "label": "Radio Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "label": "Option 1",
+                "value": "option1"
+            },
+            {
+                "label": "Option 2",
+                "value": "option2"
+            },
+            {
+                "label": "Option 3",
+                "value": "option3"
+            }
+        ]
+    },
+    "textareaFeild": {
+        "type": "textarea",
+        "label": "Textarea Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "colorFeild": {
+        "type": "color",
+        "label": "Color Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true
+    },
+    "passwordFeild": {
+        "type": "password",
+        "label": "Password Feild",
+        "placeholder": "Enter Password",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "hiddenFeild": {
+        "type": "hidden",
+        "label": "Hidden Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "buttonFeild": {
+        "type": "button",
+        "label": "Button Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "resetFeild": {
+        "type": "reset",
+        "label": "Reset Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "submitFeild": {
+        "type": "submit",
+        "label": "Submit Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "searchFeild": {
+        "type": "search",
+        "label": "Search Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9]+$"
+        }
+    },
+    "telFeild": {
+        "type": "tel",
+        "label": "Tel Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "minLength": 5,
+            "maxLength": 10,
+            "pattern": "^[0-9]+$"
+        }
+    },
+    "urlFeild": {
+        "type": "url",
+        "label": "Url Feild",
+        "placeholder": "Enter Text",
+        "value": "",
+        "required": true,
+        "validations": {
+            "pattern": "^[a-zA-Z0-9]+.[a-zA-Z0-9]+$"
+        }
+    },
+    "weekFeild": {
+        "type": "week",
+        "label": "Week Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "validations": {
+            "min": "2019-W01",
+            "max": "2019-W52"
+        }
+    },
+    "monthFeild": {
+        "type": "month",
+        "label": "Month Feild",
+        "placeholder": "Select",
+        "value": "",
+        "required": true,
+        "validations": {
+            "min": "2019-01",
+            "max": "2019-12"
+        }
+    }
+}
