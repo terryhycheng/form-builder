@@ -1,7 +1,7 @@
 {
     "textFeild": {
         "type": "text",
-        "label": "Text Feild",
+        "label": "First Name",
         "placeholder": "Enter Text",
         "value": "",
         "required": true,
