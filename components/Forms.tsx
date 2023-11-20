@@ -10,7 +10,7 @@ const forms = [
 
 const FormCard = ({ form }: any) => {
     return (
-        <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+        <div className="group flex flex-col min-h-[180px] bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
             <div className="p-4 md:p-6">
                 <span className="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
                     {form.type}
@@ -46,7 +46,7 @@ const Forms = () => {
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <button className="group flex flex-col justify-center items-center h-full bg-white hover:bg-gray-50 dark:hover:bg-slate-900/50 border-2 border-dashed border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] text-lg font-medium transition-all">
+                <button className="group flex flex-col justify-center items-center min-h-[180px] bg-white hover:bg-gray-50 dark:hover:bg-slate-900/50 border-2 border-dashed border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] text-lg font-medium transition-all">
                     <PlusCircle className='w-6 h-6 mb-1 text-slate-700' />
                     Create Form
                     <span className='text-xs text-gray-400 my-1'>Select to create a new form</span>
