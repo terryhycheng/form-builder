@@ -14,7 +14,7 @@ const TextField = ({
     setFields: React.Dispatch<React.SetStateAction<BasicField[]>>;
 }) => {
     return (
-        <div className="border rounded-md mt-4 overflow-hidden">
+        <>
             <FieldHeader field={field} heading="Text Field" setFields={setFields} />
             <hr />
             <div className="space-y-4 p-6">
@@ -54,7 +54,7 @@ const TextField = ({
                     </label>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -1,4 +1,9 @@
 import { BasicField } from '@/types/fields';
+import { ToastOptions } from 'react-toastify';
+
+export const toastOptions: ToastOptions = {
+    position: 'bottom-center',
+};
 
 // updates the value of a field in the globel `Fields` state
 export const changeField = (

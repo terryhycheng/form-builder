@@ -3,8 +3,8 @@ export type FieldType = 'text' | 'number' | 'email';
 export interface BasicField {
     id: string;
     type: FieldType;
-    label?: string;
-    placeholder?: string;
+    label: string;
+    placeholder: string;
     value?: string | number;
     required?: boolean;
     min?: number;
