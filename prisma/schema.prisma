@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+enum FieldType {
+    TEXT
+    NUMBER
+    DATE
+    TIME
+    DATETIME
+    EMAIL
+    URL
+    PASSWORD
+    FILE
+    IMAGE
+    SELECT
+    CHECKBOX
+    RADIO
+    TEXTAREA
+    COLOR
+    RANGE
+    HIDDEN
+    SEARCH
+    MONTH
+    WEEK
+    TIMELOCAL
+    DATETIMELOCAL
+}
+
+enum Role {
+    USER
+    ADMIN
+}
+
+model Form {
+    id        String   @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    fields    Field[]
+}
+
+model Field {
+    id          Int       @id @default(autoincrement())
+    type        FieldType
+    name        String
+    label       String?
+    value       String?
+    fieldId     String
+    placeholder String?
+    pattern     String?
+    min         Int?
+    max         Int?
+    fileType    String?
+    required    Boolean   @default(false)
+    form        Form      @relation(fields: [formId], references: [id])
+    formId      String
+    Option      Option[]
+}
+
+model Option {
+    id      Int     @id @default(autoincrement())
+    value   String
+    label   String?
+    field   Field   @relation(fields: [fieldId], references: [id])
+    fieldId Int
+}
+
+model User {
+    id        String   @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    email     String   @unique
+    name      String?
+    password  String
+    role      Role     @default(USER)
+}
