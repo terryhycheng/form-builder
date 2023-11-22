@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import { Toaster } from '@/components/ui/toaster';
 import React, { PropsWithChildren } from 'react';
 
 const MainLayout = ({ children }: PropsWithChildren) => {
@@ -8,6 +9,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             <Navbar isMainLayout={true} />
             {children}
             <Footer />
+            <Toaster />
         </>
     );
 };

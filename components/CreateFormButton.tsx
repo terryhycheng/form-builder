@@ -1,31 +1,104 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { PlusCircle } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { formSchema, formSchemaType } from "@/schemas/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Button } from "./ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { toast } from "./ui/use-toast";
+import { CreateForm } from "@/actions/form";
+import { useRouter } from "next/navigation";
+import { Loader2, PlusCircle } from "lucide-react";
 
-const CreateFormButton = () => {
-    const router = useRouter();
-    const onClickHandler = () => {
-        // 1. Create a new UUID
-        const uuid = self.crypto.randomUUID();
-        // 2. Check if the form with this UUID already exists
-        // 3. If yes, generate a new UUID again
-        // 4. If not, create a new form with this UUID
-        // 5. Redirect to the form page
-        router.push(`/form/${uuid}`);
-    };
+function CreateFormBtn() {
+  const router = useRouter();
+  const form = useForm<formSchemaType>({
+    resolver: zodResolver(formSchema),
+  });
 
-    return (
-        <button
-            className="group flex flex-col justify-center items-center min-h-[180px] bg-white hover:bg-gray-50 dark:hover:bg-slate-900/50 border-2 border-dashed border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] text-lg font-medium transition-all"
-            onClick={onClickHandler}
+  async function onSubmit(values: formSchemaType) {
+    try {
+      const formId = await CreateForm(values);
+      toast({
+        title: "Success",
+        description: "Form created successfully",
+      });
+      router.push(`/form/${formId}`);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong, please try again later",
+        variant: "destructive",
+      });
+    }
+  }
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button
+          variant={"outline"}
+          className="group border-2 border-primary/20 h-[190px] items-center justify-center flex flex-col hover:border-primary hover:cursor-pointer border-dashed gap-4 rounded-xl"
         >
-            <PlusCircle className="w-6 h-6 mb-1 text-slate-700" />
-            Create Form
-            <span className="text-xs text-gray-400 my-1">Select to create a new form</span>
-        </button>
-    );
-};
+          <PlusCircle className="h-8 w-8 text-muted-foreground group-hover:text-primary" />
+          <p className="font-bold text-xl text-muted-foreground group-hover:text-primary">Create new form</p>
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Create form</DialogTitle>
+          <DialogDescription>Create a new form to start collecting responses</DialogDescription>
+        </DialogHeader>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input {...field} className="focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0"/>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Textarea rows={5} {...field} className="focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </form>
+        </Form>
+        <DialogFooter>
+          <Button onClick={form.handleSubmit(onSubmit)} disabled={form.formState.isSubmitting} className="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white">
+            {!form.formState.isSubmitting && <span>Save</span>}
+            {form.formState.isSubmitting && <Loader2 className="animate-spin" />}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
-export default CreateFormButton;
+export default CreateFormBtn;
