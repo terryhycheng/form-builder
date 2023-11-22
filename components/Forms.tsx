@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
-import CreateFormButton from './CreateFormButton';
-import CreateFormBtn from './CreateFormButton_rg';
+import CreateFormBtn from './CreateFormButton';
 import { GetForms } from '@/actions/form';
 import { Skeleton } from './ui/skeleton';
 import { Form } from '@prisma/client';
@@ -16,7 +15,6 @@ const Forms = () => {
             <div className="container px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <CreateFormBtn />
-                    {/* <CreateFormButton /> */}
                     <Suspense
                         fallback={[1, 2, 3, 4].map((el) => (
                             <FormCardSkeleton key={el} />
