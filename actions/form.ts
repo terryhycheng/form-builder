@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/authOptions";
 import prisma from "@/lib/db";
 import { formSchema, formSchemaType } from "@/schemas/form";
 import { getServerSession } from "next-auth";
+import { revalidatePath } from "next/cache";
 
 class UserNotFoundErr extends Error {}
 
@@ -34,7 +35,7 @@ export async function CreateForm(data: formSchemaType) {
   if (!form) {
     throw new Error("something went wrong");
   }
-
+  revalidatePath('/dashboard')
   return form.id;
 }
 

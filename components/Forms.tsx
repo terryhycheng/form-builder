@@ -7,7 +7,7 @@ import { Form } from '@prisma/client';
 const Forms = () => {
     return (
         <div className="container px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-            <div className="border-b-2 border-slate-100 pb-3">
+            <div className="border-b-2 border-slate-100 dark:border-slate-900 pb-3">
                 <h3 className="text-2xl font-semibold mb-2">My Forms</h3>
                 <p className="text-slate-400 text-sm">Below is a list of all your forms.</p>
             </div>
