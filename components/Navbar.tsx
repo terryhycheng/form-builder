@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { LogOutIcon } from 'lucide-react';
+import LoggedInUser from './LoggedInUser';
 
 const Navbar = ({ isMainLayout = false }: { isMainLayout?: boolean }) => {
     const router = useRouter();
@@ -36,20 +37,7 @@ const Navbar = ({ isMainLayout = false }: { isMainLayout?: boolean }) => {
                                 Login
                             </Button>
                         ) : (
-                            <>
-                                <div className="text-white flex gap-4 justify-center items-center">
-                                    <p>{session.data.user.name}</p>
-                                    <Avatar>
-                                        <AvatarImage src={session.data.user.image} alt="@shadcn" />
-                                        <AvatarFallback className="bg-slate-700">
-                                            {session.data.user.name?.substring(0, 1)}
-                                        </AvatarFallback>
-                                    </Avatar>
-                                </div>
-                                <Button size="icon" onClick={() => signOut()}>
-                                    <LogOutIcon className="w-5 hover:text-blue-400" />
-                                </Button>
-                            </>
+                            <LoggedInUser user={session?.data?.user} />
                         ))}
                     <ModeToggle />
                 </div>
