@@ -1,6 +1,10 @@
+'use client'
+
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const HomeHero = () => {
+    const router = useRouter()
     return (
         <>
             {/* <!-- Hero --> */}
@@ -56,6 +60,7 @@ const HomeHero = () => {
                         <a
                             className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-1 focus:ring-gray-600 py-3 px-4 dark:focus:ring-offset-gray-800"
                             href="#"
+                            onClick={() => router.push('/login')}
                         >
                             Get started
                             <svg
@@ -77,7 +82,7 @@ const HomeHero = () => {
                             type="button"
                             className="relative group p-2 ps-3 inline-flex items-center gap-x-2 text-sm font-mono rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                         >
-                            $ npm i preline
+                            $ npm i @form-builder
                             <span className="flex justify-center items-center bg-gray-200 rounded-md w-7 h-7 dark:bg-gray-700 dark:text-gray-400">
                                 <svg
                                     className="flex-shrink-0 w-4 h-4 group-hover:rotate-6 transition"

@@ -1,17 +1,14 @@
+import { GetFormById } from '@/actions/form';
 import Builder from '@/components/Builder';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft } from 'lucide-react';
 import React from 'react';
 
-interface Props {
-    params: {
-        id: string;
-    };
-}
-
-const Page = ({ params: { id } }: Props) => {
+const Page = async ({ params }: { params: { id: string } }) => {
+    const form = await GetFormById(params.id)
     return (
         <div className="container">
-            <p>{id}</p>
-            <Builder />
+            <Builder form={form}/>
         </div>
     );
 };

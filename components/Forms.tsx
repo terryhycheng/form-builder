@@ -3,6 +3,7 @@ import CreateFormBtn from './CreateFormButton';
 import { GetForms } from '@/actions/form';
 import { Skeleton } from './ui/skeleton';
 import { Form } from '@prisma/client';
+import Link from 'next/link';
 
 const Forms = () => {
     return (
@@ -32,6 +33,11 @@ async function FormCards() {
     const forms = await GetForms();
     return (
         <>
+        {forms.length == 0 && (
+            <div className='grid items-center text-center'>
+                <p className='text-gray-400/80 dark:text-slate-600'>You have not yet created any forms.</p>
+            </div>
+        )}
         {forms.map((form) => (
             <FormCard key={form.id} form={form} />
         ))}
@@ -58,12 +64,12 @@ function FormCard({ form }: { form: Form }) {
                 >
                     View Form
                 </a>
-                <a
+                <Link
+                    href={`/form/${form.id}`}
                     className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                    href="#"
                 >
                     Edit
-                </a>
+                </Link>
             </div>
         </div>
     )

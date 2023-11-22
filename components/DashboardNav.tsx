@@ -21,8 +21,8 @@ const DashboardNav = () => {
                         <Link
                             href={item.href}
                             className={cn(
-                                'inline-flex items-center gap-x-2 hover:text-black dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600',
-                                item.href.startsWith(`${path}`) ? 'text-black font-semibold' : 'text-gray-800'
+                                'inline-flex items-center gap-x-2 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600',
+                                item.href.startsWith(`${path}`) ? 'text-black dark:text-slate-200 font-semibold' : 'text-gray-500 dark:text-slate-500 hover:text-black hover:dark:text-slate-200'
                             )}
                         >
                             {item.title}

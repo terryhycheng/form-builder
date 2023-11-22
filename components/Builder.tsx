@@ -9,10 +9,19 @@ import { clsx } from 'clsx';
 import { Input } from './ui/input';
 import slugify from 'slugify';
 import { toast } from 'react-toastify';
+import { ChevronLeft, Eye, EyeOff, Rocket, Save } from 'lucide-react';
+import { Form } from '@prisma/client';
+import { useRouter } from 'next/navigation';
 
-const Builder = () => {
+interface BuilderProps {
+    form: Form | null
+}
+
+const Builder = ({ form } : BuilderProps) => {
     const [fields, setFields] = React.useState<BasicField[]>([]);
     const [isPreview, setIsPreview] = React.useState(false);
+
+    const router = useRouter()
 
     const createField = (type: FieldType) => {
         setFields((prev) => [
@@ -28,18 +37,34 @@ const Builder = () => {
 
     return (
         <>
-            <section className="my-4 flex">
-                <div className="space-x-2">
-                    <Button
-                        className={clsx('border border-slate-800', {
-                            'bg-white text-gray-300 border-gray-300 hover:bg-gray-100': isPreview,
-                        })}
-                        onClick={() => setIsPreview((prev) => !prev)}
-                    >
-                        Preview
-                    </Button>
-                    <Button onClick={() => toast('Hello')}>Save</Button>
+            <div className='w-full my-6 flex justify-start items-start gap-6'>
+                <Button size={'icon'} variant={'secondary'} onClick={() => router.push('/dashboard')}>
+                    <ChevronLeft className='w-4 h-4'/>
+                </Button>
+                <div>
+                    <h2 className='text-2xl '>{form?.name}</h2>
+                    <p className='text-md my-2 text-gray-600 dark:text-slate-500'>{form?.description}</p>
                 </div>
+            </div>
+            <section className="mb-4 flex justify-end items-center gap-2">
+                <Button
+                    variant={'outline'}
+                    // className={clsx('border border-slate-800', {
+                    //     'bg-white text-gray-300 border-gray-300 hover:bg-gray-100': isPreview,
+                    // })}
+                    onClick={() => setIsPreview((prev) => !prev)}
+                >
+                    {isPreview ? <EyeOff className='w-4 h-4 mr-2' /> : <Eye className='w-4 h-4 mr-2'/>}
+                    Preview
+                </Button>
+                <Button onClick={() => toast('Hello')}>
+                    <Save className='w-4 h-4 mr-2'/>
+                    Save
+                </Button>
+                <Button variant={'primary'}>
+                    <Rocket className='w-4 h-4 mr-2' />
+                    Publish
+                </Button>
             </section>
             <section className="flex gap-4">
                 <div className="border flex-1 p-10 flex">

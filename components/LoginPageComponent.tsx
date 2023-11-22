@@ -3,12 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
+import { Chrome, Github } from 'lucide-react';
 
 const LoginPageComponent = () => {
     return (
         <div className="dark:bg-slate-900 bg-gray-100 flex h-full flex-1 items-center py-16">
             <div className="w-full max-w-md mx-auto p-6">
-                <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-800/20 dark:border-gray-700">
                     <div className="p-4 sm:p-7">
                         <div className="text-center">
                             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
@@ -29,17 +30,7 @@ const LoginPageComponent = () => {
                                 className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
                             >
-                                <svg
-                                    className="w-6 h-auto"
-                                    viewBox="0 0 38 38"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M18.9998 3.16666C16.9206 3.16666 14.8617 3.5762 12.9407 4.3719C11.0197 5.1676 9.27424 6.33387 7.80398 7.80413C4.83465 10.7735 3.1665 14.8007 3.1665 19C3.1665 25.9983 7.71067 31.9358 13.9965 34.0417C14.7882 34.1683 15.0415 33.6775 15.0415 33.25V30.5742C10.6557 31.5242 9.7215 28.4525 9.7215 28.4525C8.99317 26.6158 7.964 26.125 7.964 26.125C6.52317 25.1433 8.07484 25.175 8.07484 25.175C9.65817 25.2858 10.4973 26.8058 10.4973 26.8058C11.8748 29.2125 14.2023 28.5 15.1048 28.12C15.2473 27.0908 15.659 26.3942 16.1023 25.9983C12.5873 25.6025 8.89817 24.2408 8.89817 18.2083C8.89817 16.4508 9.49984 15.0417 10.529 13.9175C10.3707 13.5217 9.8165 11.875 10.6873 9.73749C10.6873 9.73749 12.0173 9.30999 15.0415 11.3525C16.2923 11.0042 17.654 10.83 18.9998 10.83C20.3457 10.83 21.7073 11.0042 22.9582 11.3525C25.9823 9.30999 27.3123 9.73749 27.3123 9.73749C28.1832 11.875 27.629 13.5217 27.4707 13.9175C28.4998 15.0417 29.1015 16.4508 29.1015 18.2083C29.1015 24.2567 25.3965 25.5867 21.8657 25.9825C22.4357 26.4733 22.9582 27.4392 22.9582 28.9117V33.25C22.9582 33.6775 23.2115 34.1842 24.019 34.0417C30.3048 31.92 34.8332 25.9983 34.8332 19C34.8332 16.9207 34.4236 14.8618 33.6279 12.9408C32.8322 11.0198 31.666 9.27439 30.1957 7.80413C28.7254 6.33387 26.98 5.1676 25.059 4.3719C23.138 3.5762 21.0791 3.16666 18.9998 3.16666Z"
-                                        fill="black"
-                                    />
-                                </svg>
+                                <Github className='w-5 h-5 mr-1' />
                                 Sign in with GitHub
                             </button>
                             <button
@@ -47,7 +38,8 @@ const LoginPageComponent = () => {
                                 className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
                             >
-                                <svg className="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
+                                <Chrome className='w-5 h-5 mr-1' />
+                                {/* <svg className="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
                                     <path
                                         d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
                                         fill="#4285F4"
@@ -64,7 +56,7 @@ const LoginPageComponent = () => {
                                         d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z"
                                         fill="#EB4335"
                                     />
-                                </svg>
+                                </svg> */}
                                 Sign in with Google
                             </button>
 

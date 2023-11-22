@@ -56,3 +56,16 @@ export async function GetForms() {
     },
   });
 }
+
+export async function GetFormById(id: string) {
+  const session = await getServerSession(authOptions);
+  if (!session?.user) {
+    throw new UserNotFoundErr();
+  }
+
+  return await prisma.form.findUnique({
+    where: {
+      id,
+    },
+  });
+}
