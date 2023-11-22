@@ -1,15 +1,23 @@
-import DashboardNav from '@/components/DashboardNav'
-import Forms from '@/components/Forms'
-import Stats from '@/components/Stats'
+import DashboardNav from '@/components/DashboardNav';
+import Forms from '@/components/Forms';
+import Stats from '@/components/Stats';
+import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 
-const DashboardPage = () => {
-  return (
-    <main id="content" role="main">
-        <DashboardNav />
-        <Stats />
-        <Forms />
-    </main>
-  )
-}
+const DashboardPage = async () => {
+    const session = await getServerSession();
 
-export default DashboardPage
+    if (!session || !session.user) {
+        redirect('/login');
+    }
+
+    return (
+        <main id="content" role="main">
+            <DashboardNav />
+            <Stats />
+            <Forms />
+        </main>
+    );
+};
+
+export default DashboardPage;
