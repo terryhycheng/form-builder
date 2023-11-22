@@ -5,8 +5,8 @@ import { AuthOptions } from 'next-auth';
 import prisma from '@/lib/db'
 
 export const authOptions: AuthOptions = {
-    session: { strategy: 'jwt' },
     adapter: PrismaAdapter(prisma),
+    // session: { strategy: "jwt", maxAge: 24 * 60 * 60 },
     // Configure one or more authentication providers
     providers: [
         GithubProvider({
@@ -17,6 +17,13 @@ export const authOptions: AuthOptions = {
             clientId: process.env.GOOGLE_CLIENT_ID ?? '',
             clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
         }),
-        // ...add more providers here
     ],
+    callbacks: {
+      session: async ({ session, token, user }) => {
+        if (session?.user) {
+          session.user.id = user.id;
+        }
+        return session;
+      },
+    }
 };

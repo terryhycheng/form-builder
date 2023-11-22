@@ -1,6 +1,7 @@
 import { PlusCircle } from 'lucide-react';
 import React from 'react';
 import CreateFormButton from './CreateFormButton';
+import CreateFormBtn from './CreateFormButton_rg';
 
 const forms = [
     {
@@ -63,6 +64,7 @@ const Forms = () => {
 
             <div className="container px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <CreateFormBtn />
                     <CreateFormButton />
                     {forms.length > 0 && forms.map((form) => <FormCard key={form.id} form={form} />)}
                 </div>

@@ -41,10 +41,20 @@ enum Role {
 }
 
 model Form {
-    id        String   @id @default(uuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    fields    Field[]
+    id          String   @id @default(uuid())
+    userId      String
+    name        String
+    description String 
+    published   Boolean  @default(false)
+    fields      Field[]
+    
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    visits      Int @default(0)
+    submissions Int @default(0)
+
+    shareURL    String @unique @default(uuid())
 }
 
 model Field {
