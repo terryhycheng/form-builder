@@ -3,14 +3,14 @@ import React from 'react';
 import TextField from './TextField';
 import NumberField from './NumberField';
 
-const Field = ({
+const FieldComponent = ({
     field,
     setFields,
 }: {
     field: BasicField;
     setFields: React.Dispatch<React.SetStateAction<BasicField[]>>;
 }) => {
-    switch (field.type) {
+    switch (field.type.toLowerCase()) {
         case 'text':
             return <TextField key={field.id} field={field} setFields={setFields} />;
         case 'number':
@@ -20,4 +20,4 @@ const Field = ({
     }
 };
 
-export default Field;
+export default FieldComponent;

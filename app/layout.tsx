@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import SessionProvider from '@/components/SessionProvider';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/authOptions';
+import { FieldContextProvider } from '@/contexts/FieldContext';
 
 export const fontSans = FontSans({
     subsets: ['latin'],
@@ -27,7 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <SessionProvider session={session}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                         <ToastifyWrapper />
-                        {children}
+                        <FieldContextProvider>{children}</FieldContextProvider>
                     </ThemeProvider>
                 </SessionProvider>
             </body>

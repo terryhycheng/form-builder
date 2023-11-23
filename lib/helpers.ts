@@ -9,7 +9,7 @@ export const toastOptions: ToastOptions = {
 export const changeField = (
     id: string,
     value: string | boolean | number,
-    label: string,
+    label: keyof BasicField,
     setFunction: React.Dispatch<React.SetStateAction<BasicField[]>>
 ) => {
     setFunction((prev) => {
