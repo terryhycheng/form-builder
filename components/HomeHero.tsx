@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { Button } from './ui/button';
+import { Play } from 'lucide-react';
 
 const HomeHero = () => {
     const router = useRouter()
@@ -16,7 +18,7 @@ const HomeHero = () => {
                             className="inline-flex items-center gap-x-2 bg-white border border-gray-200 text-sm text-gray-800 p-1 ps-3 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="#"
                         >
-                            PRO release - Join to waitlist
+                            PRO release - Join waitlist
                             <span className="py-1.5 px-2.5 inline-flex justify-center items-center gap-x-2 rounded-full bg-gray-200 font-semibold text-sm text-gray-600 dark:bg-gray-700 dark:text-gray-400">
                                 <svg
                                     className="flex-shrink-0 w-4 h-4"
@@ -38,26 +40,26 @@ const HomeHero = () => {
                     {/* <!-- End Announcement Banner --> */}
 
                     {/* <!-- Title --> */}
-                    <div className="mt-5 max-w-2xl text-center mx-auto">
+                    <div className="mt-5 max-w-5xl text-center mx-auto">
                         <h1 className="block font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-gray-200">
-                            Let&apos;s Build
+                            Effortless Form Building 
                             <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
-                                Together
+                                {' '}Building{' '}
                             </span>
+                            for Every Project!
                         </h1>
                     </div>
                     {/* <!-- End Title --> */}
 
                     <div className="mt-5 max-w-3xl text-center mx-auto">
                         <p className="text-lg text-gray-600 dark:text-gray-400">
-                            Preline UI is an open-source set of prebuilt UI components, ready-to-use examples and Figma
-                            design system based on the utility-first Tailwind CSS framework.
+                            Unleash your creativity and streamline your data collection process with FormCraftHub – the ultimate online form builder designed for ease and versatility. 
                         </p>
                     </div>
 
                     {/* <!-- Buttons --> */}
                     <div className="mt-8 gap-3 flex justify-center">
-                        <a
+                        {/* <a
                             className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-1 focus:ring-gray-600 py-3 px-4 dark:focus:ring-offset-gray-800"
                             href="#"
                             onClick={() => router.push('/login')}
@@ -77,8 +79,8 @@ const HomeHero = () => {
                                     strokeLinecap="round"
                                 />
                             </svg>
-                        </a>
-                        <button
+                        </a> */}
+                        {/* <button
                             type="button"
                             className="relative group p-2 ps-3 inline-flex items-center gap-x-2 text-sm font-mono rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                         >
@@ -100,11 +102,13 @@ const HomeHero = () => {
                                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
                                 </svg>
                             </span>
-                        </button>
+                        </button> */}
+                        <Button className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:text-white'>Get Started Today!</Button>
+                        <Button variant={'outline'}><Play className='w-4 h-4 mr-2'/>Play video</Button>
                     </div>
                     {/* <!-- End Buttons --> */}
 
-                    <div className="mt-5 flex justify-center items-center gap-x-1 sm:gap-x-3">
+                    {/* <div className="mt-5 flex justify-center items-center gap-x-1 sm:gap-x-3">
                         <span className="text-sm text-gray-600 dark:text-gray-400">Package Manager:</span>
                         <span className="text-sm font-bold text-gray-900 dark:text-white">npm</span>
                         <svg
@@ -138,7 +142,7 @@ const HomeHero = () => {
                                 />
                             </svg>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </section>
             {/* <!-- End Hero --> */}
