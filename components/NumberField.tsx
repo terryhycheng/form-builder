@@ -3,7 +3,6 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { BasicField } from '@/types/fields';
 import { changeField } from '@/lib/helpers';
-import FieldHeaderButtons from './FieldHeaderButtons';
 import FieldHeader from './FieldHeader';
 
 const NumberField = ({
@@ -21,13 +20,13 @@ const NumberField = ({
                 <div className="grid md:grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="label" className="inline-block mb-2">
-                            Label*
+                            Label<span className="text-red-500">*</span>
                         </label>
                         <Input
                             type="text"
                             name="label"
                             id="label"
-                            value={field.label}
+                            value={field.label ?? ''}
                             onChange={(e) => changeField(field.id, e.target.value, 'label', setFields)}
                         />
                     </div>
@@ -39,17 +38,17 @@ const NumberField = ({
                             type="text"
                             name="placeholder"
                             id="placeholder"
-                            value={field.placeholder}
+                            value={field.placeholder ?? ''}
                             onChange={(e) => changeField(field.id, e.target.value, 'placeholder', setFields)}
                         />
                     </div>
                 </div>
                 <div className="space-x-2">
                     <Checkbox
-                        id="isRequired"
-                        onCheckedChange={(e) => changeField(field.id, e, 'isRequired', setFields)}
+                        id={`required-${field.id}`}
+                        onCheckedChange={(e) => changeField(field.id, e, 'required', setFields)}
                     />
-                    <label htmlFor="isRequired" className="inline-block mb-2">
+                    <label htmlFor={`required-${field.id}`} className="inline-block mb-2">
                         Required field?
                     </label>
                 </div>
