@@ -46,6 +46,7 @@ const NumberField = ({
                 <div className="space-x-2">
                     <Checkbox
                         id={`required-${field.id}`}
+                        checked={field.required}
                         onCheckedChange={(e) => changeField(field.id, e, 'required', setFields)}
                     />
                     <label htmlFor={`required-${field.id}`} className="inline-block mb-2">

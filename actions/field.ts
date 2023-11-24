@@ -7,22 +7,6 @@ export async function CreateManyFields(fields: Field[], formId: string) {
     const data = fields.map((field) => {
         return { ...field, formId };
     });
-    // ({ fieldId, type, label, placeholder, required, fileType, max, min, pattern, value, name }) => ({
-    //     fieldId,
-    //     type,
-    //     label,
-    //     placeholder,
-    //     formId,
-    //     fileType,
-
-    //     max,
-    //     min,
-    //     name,
-    //     required,
-    //     pattern,
-    //     value,
-    // })
-    // );
 
     try {
         data.forEach(async (input) => {

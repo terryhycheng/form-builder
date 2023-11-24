@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import { FieldContext } from '@/contexts/FieldContext';
 import PreviewComponent from './PreviewModal';
 import { CreateManyFields } from '@/actions/field';
+import { BasicField } from '@/types/fields';
 
 interface FormWithFields extends Form {
     fields: Field[];
@@ -32,28 +33,24 @@ const Builder = ({ form }: BuilderProps) => {
     const router = useRouter();
 
     const createField = (type: $Enums.FieldType) => {
-        setFields((prev) => [
-            ...prev,
-            {
-                id: crypto.randomUUID(),
-                fieldId: '',
-                type: type,
-                label: '',
-                placeholder: '',
-                isRequired: false,
-                formId: '',
-                fileType: null,
-                options: null,
-                createdAt: new Date(),
-                updatedAt: new Date(),
-                max: null,
-                min: null,
-                name: '',
-                required: false,
-                pattern: null,
-                value: null,
-            },
-        ]);
+        const newField: BasicField = {
+            id: crypto.randomUUID(),
+            fieldId: '',
+            type: type,
+            label: '',
+            placeholder: '',
+            formId: '',
+            fileType: null,
+            max: null,
+            min: null,
+            name: '',
+            required: false,
+            pattern: null,
+            value: null,
+            order: fields.length + 1,
+        };
+
+        setFields((prev) => [...prev, newField]);
     };
 
     const saveFormHandler = async () => {
