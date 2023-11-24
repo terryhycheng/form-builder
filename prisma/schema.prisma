@@ -59,7 +59,7 @@ model Form {
 }
 
 model Field {
-    id          String       @id @default(uuid())
+    id          String    @id @default(uuid())
     type        FieldType
     name        String
     label       String?
@@ -74,6 +74,7 @@ model Field {
     form        Form      @relation(fields: [formId], references: [id])
     formId      String
     Option      Option[]
+    order       Int
 }
 
 model Option {
