@@ -7,11 +7,12 @@ import React from 'react';
 
 const Page = async ({ params }: { params: { id: string } }) => {
     const session = await getServerSession(authOptions);
-    const form = await GetFormById(params.id);
 
     if (!session || !session.user) {
         redirect('/login');
     }
+
+    const form = await GetFormById(params.id);
 
     if (!form) {
         redirect('/dashboard');

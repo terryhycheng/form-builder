@@ -38,6 +38,11 @@ export const moveUpwardField = (id: string, setFunction: React.Dispatch<React.Se
         const temp = updatedFields[index];
         updatedFields[index] = updatedFields[index - 1];
         updatedFields[index - 1] = temp;
+
+        // update the order of the fields
+        updatedFields[index - 1].order = index;
+        updatedFields[index].order = index + 1;
+
         return updatedFields;
     });
 };
@@ -52,6 +57,11 @@ export const moveDownwardField = (id: string, setFunction: React.Dispatch<React.
         const temp = updatedFields[index];
         updatedFields[index] = updatedFields[index + 1];
         updatedFields[index + 1] = temp;
+
+        // update the order of the fields
+        updatedFields[index + 1].order = index + 2;
+        updatedFields[index].order = index + 1;
+
         return updatedFields;
     });
 };
