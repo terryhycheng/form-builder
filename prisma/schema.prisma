@@ -39,7 +39,7 @@ model Field {
   required    Boolean   @default(false)
   formId      String
   order       Int
-  form        Form      @relation(fields: [formId], references: [id])
+  form        Form      @relation(fields: [formId], references: [id], onDelete: Cascade)
   option      Option[]
 
   @@index([formId], map: "Field_formId_fkey")
@@ -50,7 +50,7 @@ model Option {
   value   String
   label   String?
   fieldId String
-  field   Field   @relation(fields: [fieldId], references: [id])
+  field   Field   @relation(fields: [fieldId], references: [id], onDelete: Cascade)
 
   @@index([fieldId], map: "Option_fieldId_fkey")
 }

@@ -5,13 +5,14 @@ import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import FieldComponent from './Field';
 import { toast } from 'react-toastify';
-import { ChevronLeft, Eye, EyeOff, Rocket, Save } from 'lucide-react';
+import { ChevronLeft, Eye, EyeOff, Rocket, Save, Trash2 } from 'lucide-react';
 import { $Enums, Field, Form } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import { FieldContext } from '@/contexts/FieldContext';
 import PreviewComponent from './PreviewModal';
 import { CreateManyFields } from '@/actions/field';
 import { BasicField } from '@/types/fields';
+import DeleteModal from './modals/DeleteModal';
 
 interface FormWithFields extends Form {
     fields: Field[];
@@ -84,6 +85,7 @@ const Builder = ({ form }: BuilderProps) => {
                     <Rocket className="w-4 h-4 mr-2" />
                     Publish
                 </Button>
+                <DeleteModal form={form} />
             </section>
             <section className="flex gap-4">
                 <div className="border flex-1 p-10 flex">

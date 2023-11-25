@@ -67,3 +67,19 @@ export async function GetFormById(id: string) {
         },
     });
 }
+
+export async function DeleteForm(id: string) {
+    const session = await getServerSession(authOptions);
+    if (!session?.user) {
+        throw new UserNotFoundErr();
+    }
+
+    const form = await prisma.form.delete({
+        where: {
+            id
+        }
+    });
+
+    revalidatePath('/dashboard');
+    return form
+}
