@@ -75,11 +75,11 @@ const HomeComponents = () => {
                             >
                                 <div className="p-4 md:p-5">
                                     <div className="flex justify-between items-center group">
-                                        <div className='text-gray-800 group-hover:text-blue-600'>
+                                        <div className='text-gray-800 dark:text-white group-hover:text-blue-600'>
                                         {item.icon}
                                         </div>
                                         <div>
-                                            <h3 className="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
+                                            <h3 className="group-hover:text-blue-600 font-semibold text-gray-800 dark:text-gray-200">
                                                 {item.name}
                                             </h3>
                                             {/* <p className="text-sm text-gray-500">4 job positions</p> */}

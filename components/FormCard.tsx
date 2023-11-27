@@ -1,10 +1,12 @@
 'use client';
 
+import { handleFormDelete } from '@/lib/form';
 import { Form } from '@prisma/client';
-import { Copy, Eye, Pen } from 'lucide-react';
+import { Copy, Eye, Pen, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import { toast } from 'react-toastify';
+import DeleteModal from './modals/DeleteModal';
 
 const FormCard = ({ form }: { form: Form }) => {
     const onClickHandler = () => {
@@ -13,7 +15,7 @@ const FormCard = ({ form }: { form: Form }) => {
     };
 
     return (
-        <div className="group flex flex-col min-h-[180px] bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+        <div className="group flex flex-col min-h-[180px] bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] relative overflow-hidden">
             <div className="p-4 md:p-6">
                 <span className="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
                     Test
@@ -31,13 +33,13 @@ const FormCard = ({ form }: { form: Form }) => {
                     <Copy className="w-4" />
                     Form ID
                 </button>
-                <a
+                {/* <a
                     className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 font-medium bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     href="#"
                 >
                     <Eye className="w-5" />
                     View
-                </a>
+                </a> */}
                 <Link
                     href={`/form/${form.id}`}
                     className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -45,6 +47,9 @@ const FormCard = ({ form }: { form: Form }) => {
                     <Pen className="w-4" />
                     Edit
                 </Link>
+            </div>
+            <div className='hidden group-hover:flex justify-center items-center bg-slate-900/80 absolute top-2 right-2'>
+                <DeleteModal form={form} iconOnly />
             </div>
         </div>
     );

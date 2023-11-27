@@ -10,9 +10,10 @@ import { DeleteForm } from '@/actions/form'
 
 interface DeleteModalProps {
   form: Form
+  iconOnly?: boolean
 }
 
-const DeleteModal = ({ form }: DeleteModalProps) => {
+const DeleteModal = ({ form, iconOnly = false}: DeleteModalProps) => {
   const router = useRouter()
 
   const handleFormDelete = async (id: string) => {
@@ -30,9 +31,9 @@ const DeleteModal = ({ form }: DeleteModalProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={'destructive'} className='dark:bg-red-500 dark:hover:bg-red-600'>
-            <Trash2 className="w-4 h-4 mr-2" />
-            Delete
+        <Button variant={'destructive'} className='dark:bg-red-500 dark:hover:bg-red-600 flex justify-start items-center gap-2'>
+            <Trash2 className="w-4 h-4" />
+            {!iconOnly && <span>Delete</span> }
         </Button>
       </DialogTrigger>
       <DialogContent>

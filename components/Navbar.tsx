@@ -33,7 +33,7 @@ const Navbar = ({ isMainLayout = false }: { isMainLayout?: boolean }) => {
                 <div className="flex justify-end items-center gap-3">
                     {isMainLayout &&
                         (!session?.data?.user ? (
-                            <Button className="bg-blue-600 hover:bg-blue-700" onClick={() => router.push('/login')}>
+                            <Button className="bg-blue-600 hover:bg-blue-700 dark:text-white" onClick={() => router.push('/login')}>
                                 Login
                             </Button>
                         ) : (
