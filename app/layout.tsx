@@ -28,7 +28,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <SessionProvider session={session}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                         <ToastifyWrapper />
-                        <FieldContextProvider>{children}</FieldContextProvider>
+                        <FieldContextProvider>
+                            <main className='w-full min-h-screen'>{children}</main>
+                        </FieldContextProvider>
                     </ThemeProvider>
                 </SessionProvider>
             </body>

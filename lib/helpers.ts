@@ -65,3 +65,10 @@ export const moveDownwardField = (id: string, setFunction: React.Dispatch<React.
         return updatedFields;
     });
 };
+
+// Function for masking the character 
+export const MaskCharacter = (str:string, mask:string, n = 1) => {
+return ('' + str).slice(0, -n)
+    .replace(/./g, mask)
+    + ('' + str).slice(-n);
+}

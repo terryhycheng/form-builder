@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import React from 'react';
 
-const DashboardNav = () => {
+const PageNav = () => {
     const { mainNav: items } = dashboardConfig;
     const path = usePathname();
 
@@ -34,4 +34,4 @@ const DashboardNav = () => {
     );
 };
 
-export default DashboardNav;
+export default PageNav;

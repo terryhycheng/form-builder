@@ -13,7 +13,7 @@ type Feature = {
     selected: boolean
 }
 
-const HomeQuote = () => {
+const HowItWorks = () => {
     const [features, setFeatures] = useState<Feature[]>([
         {
             id: 1, 
@@ -121,7 +121,7 @@ const HomeQuote = () => {
     );
 };
 
-export default HomeQuote;
+export default HowItWorks;
 
 
 const SelectedFeatureImage = ({selectedFeature}: any) => {
