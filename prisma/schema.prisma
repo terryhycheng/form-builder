@@ -94,6 +94,7 @@ model User {
   accounts      Account[]
   forms         Form[]
   sessions      Session[]
+  apiKey        String?
 }
 
 model VerificationToken {
