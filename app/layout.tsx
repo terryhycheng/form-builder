@@ -8,6 +8,7 @@ import SessionProvider from '@/components/SessionProvider';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/authOptions';
 import { FieldContextProvider } from '@/contexts/FieldContext';
+import Navbar from '@/components/Navbar';
 
 export const fontSans = FontSans({
     subsets: ['latin'],
@@ -29,7 +30,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                         <ToastifyWrapper />
                         <FieldContextProvider>
-                            <main className='w-full min-h-screen'>{children}</main>
+                            <main className='w-full min-h-screen'>
+                                <Navbar isMainLayout={true} />
+                                {children}
+                            </main>
                         </FieldContextProvider>
                     </ThemeProvider>
                 </SessionProvider>

@@ -7,7 +7,6 @@ import React, { PropsWithChildren } from 'react';
 const MainLayout = ({ children }: PropsWithChildren) => {
     return (
         <>
-            <Navbar isMainLayout={true} />
             <PageNav />
             <main className='min-h-screen'>
                 {children}
