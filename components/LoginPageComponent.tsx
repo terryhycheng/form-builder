@@ -9,6 +9,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSearchParams } from 'next/navigation';
 import clsx from 'clsx';
+import { toast } from 'react-toastify';
 
 const formSchema = z.object({
     email: z.string().email(),
@@ -33,10 +34,7 @@ const LoginPageComponent = () => {
         await signIn('credentials', {
             email: data.email,
             password: data.password,
-            callbackUrl: '/dashboard',
         });
-
-        reset();
     };
 
     return (
