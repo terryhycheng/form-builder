@@ -30,10 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                         <ToastifyWrapper />
                         <FieldContextProvider>
-                            <main className='w-full min-h-screen'>
-                                <Navbar isMainLayout={true} />
-                                {children}
-                            </main>
+                            <main className="w-full min-h-screen flex flex-col">{children}</main>
                         </FieldContextProvider>
                     </ThemeProvider>
                 </SessionProvider>

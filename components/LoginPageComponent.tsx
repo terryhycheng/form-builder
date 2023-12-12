@@ -9,7 +9,6 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSearchParams } from 'next/navigation';
 import clsx from 'clsx';
-import { toast } from 'react-toastify';
 
 const formSchema = z.object({
     email: z.string().email(),
@@ -125,12 +124,12 @@ const LoginPageComponent = () => {
                                             <label htmlFor="password" className="block text-sm mb-2 dark:text-white">
                                                 Password
                                             </label>
-                                            <a
+                                            <Link
                                                 className="text-sm text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                                href="../examples/html/recover-account.html"
+                                                href={'/forgotpassword'}
                                             >
                                                 Forgot password?
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div className="relative">
                                             <input
