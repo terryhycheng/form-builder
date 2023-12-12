@@ -59,7 +59,7 @@ const LoginPageComponent = () => {
                             <button
                                 type="button"
                                 className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
+                                onClick={() => signIn('github')}
                             >
                                 <Github className="w-5 h-5 mr-1" />
                                 Sign in with GitHub
@@ -67,7 +67,7 @@ const LoginPageComponent = () => {
                             <button
                                 type="button"
                                 className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
+                                onClick={() => signIn('google')}
                             >
                                 <Chrome className="w-5 h-5 mr-1" />
                                 Sign in with Google
@@ -214,6 +214,10 @@ const getErrorMessage = (error: string) => {
     switch (error) {
         case 'invalid credentials':
             return 'The email or password you entered is not correct. Please try again';
+        case 'no password':
+            return 'Your account has not set up password. Please log in with Google or Github and update the password in setting.';
+        case 'OAuthAccountNotLinked':
+            return 'To confirm your identity, sign in with the same account you used originally.';
         default:
             return 'Something went wrong, please try again';
     }

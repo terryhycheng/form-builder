@@ -76,10 +76,10 @@ export async function DeleteForm(id: string) {
 
     const form = await prisma.form.delete({
         where: {
-            id
-        }
+            id,
+        },
     });
 
     revalidatePath('/dashboard');
-    return form
+    return form;
 }

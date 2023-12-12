@@ -15,10 +15,12 @@ export const authOptions: AuthOptions = {
         GithubProvider({
             clientId: process.env.GITHUB_ID ?? '',
             clientSecret: process.env.GITHUB_SECRET ?? '',
+            allowDangerousEmailAccountLinking: true,
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID ?? '',
             clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
+            allowDangerousEmailAccountLinking: true,
         }),
         CredentialsProvider({
             name: 'Credentials',
@@ -55,11 +57,11 @@ export const authOptions: AuthOptions = {
         error: '/login',
     },
     callbacks: {
-        // session: async ({ session, token, user }) => {
-        //     if (session?.user) {
-        //         session.user.id = user.id;
-        //     }
-        //     return session;
-        // },
+        session: async ({ session, token }) => {
+            if (session?.user) {
+                session.user.id = token.sub;
+            }
+            return session;
+        },
     },
 };
