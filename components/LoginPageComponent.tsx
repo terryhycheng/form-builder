@@ -217,6 +217,8 @@ const getErrorMessage = (error: string) => {
             return 'Your account has not set up password. Please log in with Google or Github and update the password in setting.';
         case 'OAuthAccountNotLinked':
             return 'To confirm your identity, sign in with the same account you used originally.';
+        case 'Unknown authorisation error':
+            return 'It seems this email address is not registered. Please sign up first.';
         default:
             return 'Something went wrong, please try again';
     }
