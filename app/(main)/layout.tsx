@@ -1,20 +1,10 @@
-import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import PageNav from '@/components/PageNav';
-import { Toaster } from '@/components/ui/toaster';
-import React, { PropsWithChildren } from 'react';
 
-const MainLayout = ({ children }: PropsWithChildren) => {
+export default async function MainLayout({ children }: { children: React.ReactNode }) {
     return (
-        <>
-            <PageNav />
-            <main className='min-h-screen'>
-                {children}
-            </main>
-            <Footer />
-            <Toaster />
-        </>
+        <main className="w-full min-h-screen">
+            <Navbar isMainLayout={true} />
+            {children}
+        </main>
     );
-};
-
-export default MainLayout;
+}
